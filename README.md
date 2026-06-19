@@ -8,50 +8,38 @@ Construyo aplicaciones web de punta a punta, del diseño de la interfaz a la ló
 
 ---
 
-### 🛠️ Stack
+### 🛠️ Tecnologías que uso
 
-**Frontend**
+> Se actualiza automáticamente según el código de mis repositorios en GitHub.
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![TanStack Query](https://img.shields.io/badge/TanStack_Query-FF4154?style=for-the-badge&logo=reactquery&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+<!-- METRICS:START -->
+<!-- METRICS:END -->
 
-**Backend**
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=elguerrerojohn&layout=donut-vertical&langs_count=10&locale=es&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&hide=html,css,scss" height="280" alt="Lenguajes más usados"/>
+</p>
 
-![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-
-**Bases de datos**
-
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language/?username=elguerrerojohn&exclude=html,css,scss&theme=github_dark" height="200" alt="Repos por lenguaje"/>
+</p>
 
 ---
 
 ### 📊 GitHub en números
 
-> Datos reales _(incluye actividad en repos privados)_
-
-| | |
-|---|---|
-| 🔥 Contribuciones (último año) | **0** |
-| 🔒 De ellas, en repos privados | **—** |
-| 🔀 Pull Requests | **3** |
-| ⭐ Stars recibidas | **0** |
-| 📦 Repositorios | **12** |
+> Estadísticas en tiempo real. Se recalculan con cada commit, PR y repositorio nuevo.
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=elguerrerojohn&show_icons=true&locale=es&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&icon_color=58a6ff" height="165" alt="Estadísticas de GitHub"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=elguerrerojohn&locale=es&hide_border=true&background=0D1117&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff" height="165" alt="Racha de contribuciones"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=elguerrerojohn&show_icons=true&locale=es&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&icon_color=58a6ff&include_all_commits=true&count_private=true" height="165" alt="Estadísticas de GitHub"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=elguerrerojohn&locale=es&hide_border=true&background=0D1117&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff&count_private=true" height="165" alt="Racha de contribuciones"/>
 </p>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=elguerrerojohn&layout=compact&locale=es&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9" height="165" alt="Lenguajes más usados"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=elguerrerojohn&theme=github_dark" alt="Resumen del perfil"/>
+</p>
+
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=elguerrerojohn&theme=github_dark&utcOffset=-5" alt="Horario productivo"/>
 </p>
 
 ---
