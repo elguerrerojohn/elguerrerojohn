@@ -1,8 +1,12 @@
 # Hola, soy John Guerrero 👋
 
-### Ingeniero de Sistemas · Full Stack Developer
+### Ingeniero de Sistemas · Desarrollador Full Stack · Auditor ISO 27001
 
-Construyo aplicaciones web de punta a punta, del diseño de la interfaz a la lógica del servidor. Me enfoco en código limpio, arquitecturas mantenibles y experiencias de usuario rápidas.
+Soy **Ingeniero de Sistemas** con **especialización en Desarrollo de Software** y más de **10 años** construyendo soluciones de software de punta a punta. Auditor en **ISO/IEC 27001:2022** e **ISO/IEC 27005:2022**.
+
+Llevo proyectos completos: desde la **toma de requerimientos** y el **análisis**, hasta el **desarrollo**, la **implementación** y el despliegue. Trabajo **frontend y backend** con arquitecturas mantenibles y código limpio.
+
+Diseño interfaces bajo la metodología **«No me hagas pensar»**: software claro, intuitivo y fácil de usar, sin fricción innecesaria para quien lo opera.
 
 🔭 Acá vas a encontrar mis proyectos. Date una vuelta por los repos fijados 👇
 
@@ -51,9 +55,10 @@ Construyo aplicaciones web de punta a punta, del diseño de la interfaz a la ló
 
 ### 💬 Sobre mí
 
-- Ingeniero de Sistemas apasionado por la programación y el deporte.
-- Me gusta resolver problemas reales con software, no acumular tecnologías por moda.
-- Creo en los fundamentos: entender el porqué antes que el cómo.
-- Siempre aprendiendo algo nuevo del ecosistema web y del backend.
+- **Ingeniero de Sistemas** con postgrado en **Especialización en Desarrollo de Software**.
+- **Auditor ISO/IEC 27001:2022** e **ISO/IEC 27005:2022** — seguridad de la información en el ciclo de vida del software.
+- **+10 años** de experiencia en desarrollo: requerimientos, análisis, implementación y puesta en producción.
+- Full stack: interfaces que no obligan al usuario a pensar, y backends sólidos que sostienen el negocio.
+- Apasionado por la programación y el deporte; creo en resolver problemas reales, no en acumular tecnologías por moda.
 
-> _"Primero entendé el problema, después escribí el código."_
+> _«Primero entendé el problema, después escribí el código.»_
