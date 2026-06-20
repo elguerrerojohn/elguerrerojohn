@@ -40,7 +40,7 @@ Construyo aplicaciones web de punta a punta, del diseño de la interfaz a la ló
 
 | | |
 |---|---|
-| 🔥 Contribuciones (último año) | **4** |
+| 🔥 Contribuciones (último año) | **5** |
 | 🔒 De ellas, en repos privados | **0** |
 | 🔀 Pull Requests | **3** |
 | ⭐ Stars recibidas | **0** |
