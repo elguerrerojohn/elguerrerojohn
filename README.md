@@ -35,24 +35,17 @@ Construyo aplicaciones web de punta a punta, del diseño de la interfaz a la ló
 
 ### 📊 GitHub en números
 
-> Datos reales _(incluye actividad en repos privados)_
+<!-- STATS:START -->
+> Datos reales actualizados a junio de 2026 _(incluye actividad en repos privados)_
 
 | | |
 |---|---|
-| 🔥 Contribuciones (último año) | **0** |
-| 🔒 De ellas, en repos privados | **—** |
+| 🔥 Contribuciones (último año) | **4** |
+| 🔒 De ellas, en repos privados | **0** |
 | 🔀 Pull Requests | **3** |
 | ⭐ Stars recibidas | **0** |
-| 📦 Repositorios | **12** |
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=elguerrerojohn&show_icons=true&locale=es&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&icon_color=58a6ff" height="165" alt="Estadísticas de GitHub"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=elguerrerojohn&locale=es&hide_border=true&background=0D1117&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff" height="165" alt="Racha de contribuciones"/>
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=elguerrerojohn&layout=compact&locale=es&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9" height="165" alt="Lenguajes más usados"/>
-</p>
+| 📦 Repositorios | **4** |
+<!-- STATS:END -->
 
 ---
 
@@ -64,9 +57,3 @@ Construyo aplicaciones web de punta a punta, del diseño de la interfaz a la ló
 - Siempre aprendiendo algo nuevo del ecosistema web y del backend.
 
 > _"Primero entendé el problema, después escribí el código."_
-
----
-
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=elguerrerojohn&label=Visitas%20al%20perfil&color=0e75b6&style=flat" alt="Contador de visitas"/>
-</p>

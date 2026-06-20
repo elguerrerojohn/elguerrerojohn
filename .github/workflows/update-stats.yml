@@ -1,0 +1,39 @@
+name: Actualizar estadisticas del perfil
+
+on:
+  schedule:
+    # Todos los lunes a las 06:00 UTC (01:00 en Colombia)
+    - cron: "0 6 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generar estadisticas
+        env:
+          GH_TOKEN: ${{ secrets.METRICS_TOKEN }}
+        run: node scripts/update-stats.mjs
+
+      - name: Commit y push si hay cambios
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add README.md
+            git commit -m "chore: actualiza estadisticas del perfil"
+            git push
+          else
+            echo "Sin cambios en las estadisticas."
+          fi
