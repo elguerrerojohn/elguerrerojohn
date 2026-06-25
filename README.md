@@ -45,10 +45,10 @@ Diseño interfaces bajo la metodología **«No me hagas pensar»**: software cla
 
 | | |
 |---|---|
-| 🔥 Contribuciones (último año) | **9** |
-| 🧮 Commits (último año) | **8** |
+| 🔥 Contribuciones (último año) | **10** |
+| 🧮 Commits (último año) | **9** |
 | 🔒 De ellas, en repos privados | **0** |
-| 🔀 Pull Requests | **3** |
+| 🔀 Pull Requests | **0** |
 | ⭐ Stars recibidas | **0** |
 | 📦 Repositorios públicos | **3** |
 <!-- STATS:END -->
