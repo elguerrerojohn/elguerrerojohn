@@ -90,7 +90,6 @@ async function fetchTotalStars() {
 
 function buildStatsBlock({
   contributions,
-  commits,
   privateContributions,
   pullRequests,
   stars,
@@ -109,7 +108,6 @@ function buildStatsBlock({
 | | |
 |---|---|
 | 🔥 Contribuciones (último año) | **${formatNumber(contributions)}** |
-| 🧮 Commits (último año) | **${formatNumber(commits)}** |
 | 🔒 De ellas, en repos privados | **${formatNumber(privateContributions)}** |
 | 🔀 Pull Requests | **${formatNumber(pullRequests)}** |
 | ⭐ Stars recibidas | **${formatNumber(stars)}** |
@@ -123,7 +121,6 @@ async function main() {
       user(login: $login) {
         contributionsCollection {
           restrictedContributionsCount
-          totalCommitContributions
           contributionCalendar { totalContributions }
         }
         pullRequests { totalCount }
@@ -138,7 +135,6 @@ async function main() {
 
   const statsBlock = buildStatsBlock({
     contributions: contributionsCollection.contributionCalendar.totalContributions,
-    commits: contributionsCollection.totalCommitContributions,
     privateContributions: contributionsCollection.restrictedContributionsCount,
     pullRequests: summary.user.pullRequests.totalCount,
     stars,
