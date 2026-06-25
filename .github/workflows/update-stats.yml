@@ -2,8 +2,8 @@ name: Actualizar estadisticas del perfil
 
 on:
   schedule:
-    # Todos los lunes a las 06:00 UTC (01:00 en Colombia)
-    - cron: "0 6 * * 1"
+    # Todos los días a las 06:00 UTC (01:00 en Colombia)
+    - cron: "0 6 * * *"
   workflow_dispatch: {}
 
 permissions:
