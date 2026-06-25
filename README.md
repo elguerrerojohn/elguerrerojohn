@@ -50,7 +50,7 @@ Diseño interfaces bajo la metodología **«No me hagas pensar»**: software cla
 | 🔒 De ellas, en repos privados | **0** |
 | 🔀 Pull Requests | **3** |
 | ⭐ Stars recibidas | **0** |
-| 📦 Repositorios | **6** |
+| 📦 Repositorios públicos | **3** |
 <!-- STATS:END -->
 
 ---

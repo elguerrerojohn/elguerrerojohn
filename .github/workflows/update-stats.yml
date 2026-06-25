@@ -21,16 +21,11 @@ jobs:
         with:
           node-version: "24"
 
-      - name: Verificar token
-        run: |
-          if [[ -z "${{ secrets.METRICS_TOKEN }}" ]]; then
-            echo "::error::El secret METRICS_TOKEN esta vacio. Configura un PAT con scopes 'repo' y 'read:user' en Settings > Secrets and variables > Actions."
-            exit 1
-          fi
-
       - name: Generar estadisticas
         env:
-          GH_TOKEN: ${{ secrets.METRICS_TOKEN }}
+          # Token efimero del propio workflow: sin PAT ni secrets almacenados.
+          GH_TOKEN: ${{ github.token }}
+          GH_LOGIN: ${{ github.repository_owner }}
         run: node scripts/update-stats.mjs
 
       - name: Commit y push si hay cambios

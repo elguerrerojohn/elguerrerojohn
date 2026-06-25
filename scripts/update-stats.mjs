@@ -1,17 +1,18 @@
 // Actualiza el bloque de estadísticas del README leyendo datos reales de GitHub.
-// Requiere un token con acceso a las contribuciones del usuario (incluye privadas)
-// expuesto en la variable de entorno GH_TOKEN (o METRICS_TOKEN).
+//
+// Seguridad: usa el GITHUB_TOKEN efímero del workflow (no requiere ningún PAT
+// almacenado en secrets). Consulta los datos públicos del usuario vía `user(login)`.
+// Las contribuciones en repos privados se reflejan de forma anónima sólo si el
+// usuario activa "Include private contributions on my profile" en su perfil.
 import { readFile, writeFile } from "node:fs/promises";
 
-const token = process.env.GH_TOKEN || process.env.METRICS_TOKEN;
+const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
 if (!token) {
-  console.error(
-    "Falta el token. Definí GH_TOKEN (o METRICS_TOKEN) con un PAT del usuario " +
-      "que tenga scopes 'repo' y 'read:user'."
-  );
+  console.error("Falta el token. En GitHub Actions usá GH_TOKEN: ${{ github.token }}.");
   process.exit(1);
 }
 
+const LOGIN = process.env.GH_LOGIN || "elguerrerojohn";
 const ENDPOINT = "https://api.github.com/graphql";
 const README_PATH = "README.md";
 const MAX_RETRIES = 3;
@@ -67,18 +68,18 @@ async function fetchTotalStars() {
 
   while (hasNextPage) {
     const data = await runGraphql(
-      `query($cursor: String) {
-        viewer {
-          repositories(first: 100, after: $cursor, ownerAffiliations: OWNER, isFork: false) {
+      `query($login: String!, $cursor: String) {
+        user(login: $login) {
+          repositories(first: 100, after: $cursor, ownerAffiliations: OWNER, isFork: false, privacy: PUBLIC) {
             pageInfo { hasNextPage endCursor }
             nodes { stargazerCount }
           }
         }
       }`,
-      { cursor }
+      { login: LOGIN, cursor }
     );
 
-    const repositories = data.viewer.repositories;
+    const repositories = data.user.repositories;
     totalStars += repositories.nodes.reduce((sum, repo) => sum + repo.stargazerCount, 0);
     hasNextPage = repositories.pageInfo.hasNextPage;
     cursor = repositories.pageInfo.endCursor;
@@ -112,35 +113,36 @@ function buildStatsBlock({
 | 🔒 De ellas, en repos privados | **${formatNumber(privateContributions)}** |
 | 🔀 Pull Requests | **${formatNumber(pullRequests)}** |
 | ⭐ Stars recibidas | **${formatNumber(stars)}** |
-| 📦 Repositorios | **${formatNumber(repositories)}** |
+| 📦 Repositorios públicos | **${formatNumber(repositories)}** |
 <!-- STATS:END -->`;
 }
 
 async function main() {
-  const summary = await runGraphql(`
-    query {
-      viewer {
+  const summary = await runGraphql(
+    `query($login: String!) {
+      user(login: $login) {
         contributionsCollection {
           restrictedContributionsCount
           totalCommitContributions
           contributionCalendar { totalContributions }
         }
         pullRequests { totalCount }
-        repositories(ownerAffiliations: OWNER, isFork: false) { totalCount }
+        repositories(ownerAffiliations: OWNER, isFork: false, privacy: PUBLIC) { totalCount }
       }
-    }
-  `);
+    }`,
+    { login: LOGIN }
+  );
 
-  const contributionsCollection = summary.viewer.contributionsCollection;
+  const contributionsCollection = summary.user.contributionsCollection;
   const stars = await fetchTotalStars();
 
   const statsBlock = buildStatsBlock({
     contributions: contributionsCollection.contributionCalendar.totalContributions,
     commits: contributionsCollection.totalCommitContributions,
     privateContributions: contributionsCollection.restrictedContributionsCount,
-    pullRequests: summary.viewer.pullRequests.totalCount,
+    pullRequests: summary.user.pullRequests.totalCount,
     stars,
-    repositories: summary.viewer.repositories.totalCount,
+    repositories: summary.user.repositories.totalCount,
   });
 
   const readme = await readFile(README_PATH, "utf8");
