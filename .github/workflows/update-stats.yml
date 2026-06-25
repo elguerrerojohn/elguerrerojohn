@@ -19,7 +19,14 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
+
+      - name: Verificar token
+        run: |
+          if [[ -z "${{ secrets.METRICS_TOKEN }}" ]]; then
+            echo "::error::El secret METRICS_TOKEN esta vacio. Configura un PAT con scopes 'repo' y 'read:user' en Settings > Secrets and variables > Actions."
+            exit 1
+          fi
 
       - name: Generar estadisticas
         env:

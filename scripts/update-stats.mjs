@@ -1,37 +1,63 @@
 // Actualiza el bloque de estadísticas del README leyendo datos reales de GitHub.
 // Requiere un token con acceso a las contribuciones del usuario (incluye privadas)
-// expuesto en la variable de entorno GH_TOKEN.
+// expuesto en la variable de entorno GH_TOKEN (o METRICS_TOKEN).
 import { readFile, writeFile } from "node:fs/promises";
 
-const token = process.env.GH_TOKEN;
+const token = process.env.GH_TOKEN || process.env.METRICS_TOKEN;
 if (!token) {
-  console.error("Falta la variable de entorno GH_TOKEN.");
+  console.error(
+    "Falta el token. Definí GH_TOKEN (o METRICS_TOKEN) con un PAT del usuario " +
+      "que tenga scopes 'repo' y 'read:user'."
+  );
   process.exit(1);
 }
 
 const ENDPOINT = "https://api.github.com/graphql";
 const README_PATH = "README.md";
+const MAX_RETRIES = 3;
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function runGraphql(query, variables = {}) {
-  const response = await fetch(ENDPOINT, {
-    method: "POST",
-    headers: {
-      Authorization: `bearer ${token}`,
-      "Content-Type": "application/json",
-      "User-Agent": "profile-stats-updater",
-    },
-    body: JSON.stringify({ query, variables }),
-  });
+  let lastError;
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      const response = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: {
+          Authorization: `bearer ${token}`,
+          "Content-Type": "application/json",
+          "User-Agent": "profile-stats-updater",
+        },
+        body: JSON.stringify({ query, variables }),
+        signal: AbortSignal.timeout(20000),
+      });
 
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status}: ${await response.text()}`);
-  }
+      // 5xx y 429 son transitorios: reintentar. 4xx (auth/scopes) son definitivos.
+      if (!response.ok) {
+        const body = await response.text();
+        if (response.status >= 500 || response.status === 429) {
+          throw new Error(`HTTP ${response.status}: ${body}`);
+        }
+        console.error(`HTTP ${response.status}: ${body}`);
+        process.exit(1);
+      }
 
-  const payload = await response.json();
-  if (payload.errors) {
-    throw new Error(`GraphQL: ${JSON.stringify(payload.errors)}`);
+      const payload = await response.json();
+      if (payload.errors) {
+        throw new Error(`GraphQL: ${JSON.stringify(payload.errors)}`);
+      }
+      return payload.data;
+    } catch (error) {
+      lastError = error;
+      if (attempt < MAX_RETRIES) {
+        const backoff = 1000 * 2 ** (attempt - 1);
+        console.warn(`Intento ${attempt} falló (${error.message}). Reintentando en ${backoff}ms…`);
+        await sleep(backoff);
+      }
+    }
   }
-  return payload.data;
+  throw lastError;
 }
 
 async function fetchTotalStars() {
@@ -61,7 +87,14 @@ async function fetchTotalStars() {
   return totalStars;
 }
 
-function buildStatsBlock({ contributions, privateContributions, pullRequests, stars, repositories }) {
+function buildStatsBlock({
+  contributions,
+  commits,
+  privateContributions,
+  pullRequests,
+  stars,
+  repositories,
+}) {
   const formatNumber = (value) => value.toLocaleString("es-CO");
   const updatedAt = new Intl.DateTimeFormat("es-CO", {
     month: "long",
@@ -75,6 +108,7 @@ function buildStatsBlock({ contributions, privateContributions, pullRequests, st
 | | |
 |---|---|
 | 🔥 Contribuciones (último año) | **${formatNumber(contributions)}** |
+| 🧮 Commits (último año) | **${formatNumber(commits)}** |
 | 🔒 De ellas, en repos privados | **${formatNumber(privateContributions)}** |
 | 🔀 Pull Requests | **${formatNumber(pullRequests)}** |
 | ⭐ Stars recibidas | **${formatNumber(stars)}** |
@@ -88,6 +122,7 @@ async function main() {
       viewer {
         contributionsCollection {
           restrictedContributionsCount
+          totalCommitContributions
           contributionCalendar { totalContributions }
         }
         pullRequests { totalCount }
@@ -96,11 +131,13 @@ async function main() {
     }
   `);
 
+  const contributionsCollection = summary.viewer.contributionsCollection;
   const stars = await fetchTotalStars();
 
   const statsBlock = buildStatsBlock({
-    contributions: summary.viewer.contributionsCollection.contributionCalendar.totalContributions,
-    privateContributions: summary.viewer.contributionsCollection.restrictedContributionsCount,
+    contributions: contributionsCollection.contributionCalendar.totalContributions,
+    commits: contributionsCollection.totalCommitContributions,
+    privateContributions: contributionsCollection.restrictedContributionsCount,
     pullRequests: summary.viewer.pullRequests.totalCount,
     stars,
     repositories: summary.viewer.repositories.totalCount,
