@@ -41,7 +41,7 @@ Diseño interfaces bajo la metodología **«No me hagas pensar»**: software cla
 ### 📊 GitHub en números
 
 <!-- STATS:START -->
-> Datos reales actualizados a junio de 2026 _(incluye actividad en repos privados)_
+> Datos reales actualizados a julio de 2026 _(incluye actividad en repos privados)_
 
 | | |
 |---|---|
