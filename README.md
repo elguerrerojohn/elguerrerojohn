@@ -45,8 +45,8 @@ Diseño interfaces bajo la metodología **«No me hagas pensar»**: software cla
 
 | | |
 |---|---|
-| 🔥 Contribuciones (último año) | **210** |
-| 🔒 De ellas, en repos privados | **198** |
+| 🔥 Contribuciones (último año) | **214** |
+| 🔒 De ellas, en repos privados | **202** |
 | 🔀 Pull Requests | **0** |
 | ⭐ Stars recibidas | **0** |
 | 📦 Repositorios públicos | **3** |
