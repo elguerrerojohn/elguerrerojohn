@@ -32,6 +32,8 @@ Diseño interfaces bajo la metodología **«No me hagas pensar»**: software cla
 ![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Drupal](https://img.shields.io/badge/Drupal-0678BE?style=for-the-badge&logo=drupal&logoColor=white)
+![Dolibarr](https://img.shields.io/badge/Dolibarr-25364A?style=for-the-badge&logo=dolibarr&logoColor=white)
 
 **Bases de datos**
 
