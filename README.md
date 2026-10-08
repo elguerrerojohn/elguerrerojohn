@@ -2,9 +2,9 @@
 
 ### Ingeniero de Sistemas · Desarrollador Full Stack · Auditor ISO 27001
 
-Soy **Ingeniero de Sistemas** con **especialización en Desarrollo de Software** y más de **10 años** construyendo soluciones de software de punta a punta. Auditor en **ISO/IEC 27001:2022** e **ISO/IEC 27005:2022**.
+Soy **Ingeniero de Sistemas** con **especialización en Desarrollo de Software** y más de **15 años** construyendo soluciones de software de punta a punta. Auditor en **ISO/IEC 27001:2022** e **ISO/IEC 27005:2022**.
 
-Llevo proyectos completos: desde la **toma de requerimientos** y el **análisis**, hasta el **desarrollo**, la **implementación** y el despliegue. Trabajo **frontend y backend** con arquitecturas mantenibles y código limpio.
+He construido proyectos completos: desde la **toma de requerimientos** y el **análisis**, hasta el **desarrollo**, la **implementación** y el despliegue. Trabajo **frontend y backend** con arquitecturas mantenibles y código limpio.
 
 Diseño interfaces bajo la metodología **«No me hagas pensar»**: software claro, intuitivo y fácil de usar, sin fricción innecesaria para quien lo opera.
 
@@ -62,4 +62,4 @@ Diseño interfaces bajo la metodología **«No me hagas pensar»**: software cla
 - Full stack: interfaces que no obligan al usuario a pensar, y backends sólidos que sostienen el negocio.
 - Apasionado por la programación y el deporte; creo en resolver problemas reales, no en acumular tecnologías por moda.
 
-> _«Primero entendé el problema, después escribí el código.»_
+> __
