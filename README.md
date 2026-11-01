@@ -45,12 +45,12 @@ Diseño interfaces bajo la metodología **«No me hagas pensar»**: software cla
 ### 📊 GitHub en números
 
 <!-- STATS:START -->
-> Datos reales actualizados a octubre de 2026 _(incluye actividad en repos privados)_
+> Datos reales actualizados a noviembre de 2026 _(incluye actividad en repos privados)_
 
 | | |
 |---|---|
-| 🔥 Contribuciones (último año) | **750** |
-| 🔒 De ellas, en repos privados | **724** |
+| 🔥 Contribuciones (último año) | **755** |
+| 🔒 De ellas, en repos privados | **729** |
 | 🔀 Pull Requests | **0** |
 | ⭐ Stars recibidas | **0** |
 | 📦 Repositorios públicos | **6** |
